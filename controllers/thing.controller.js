@@ -51,3 +51,16 @@ module.exports.updateThing = async (req, res, next) => {
     next(error)
   }
 }
+
+module.exports.deleteThing = async (req, res, next) => {
+  try {
+    const { params: { id }} = req;
+    const thing = await Thing.deleteByPk(id);
+    if (thing) {
+      res.status(200).send({ data: thing });
+    }
+    res.status(404).send();
+  } catch (error) {
+    next(error)
+  }
+}
