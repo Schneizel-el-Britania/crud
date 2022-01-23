@@ -9,7 +9,7 @@ router.get('/thing', ThingController.getAllThings);
 router
   .route('/thing/:id')
   .get(ThingController.getThing)
-  //.patch(ThingController.updateThing)
+  .patch(ThingController.updateThing)
   //.delete(ThingController.deleteThing)
 
 module.exports = router; 
